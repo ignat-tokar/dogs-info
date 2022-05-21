@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/dogs-info/static/css/main.8b924d91.css",
-    "main.js": "/dogs-info/static/js/main.afdb8e54.js",
+    "main.css": "/dogs-info/static/css/main.6bb6117d.css",
+    "main.js": "/dogs-info/static/js/main.1d470eb5.js",
     "static/js/787.9a587622.chunk.js": "/dogs-info/static/js/787.9a587622.chunk.js",
+    "static/media/preloader.svg": "/dogs-info/static/media/preloader.ea356991b1c2fb4775312a4c61f7a20d.svg",
     "index.html": "/dogs-info/index.html",
-    "main.8b924d91.css.map": "/dogs-info/static/css/main.8b924d91.css.map",
-    "main.afdb8e54.js.map": "/dogs-info/static/js/main.afdb8e54.js.map",
+    "main.6bb6117d.css.map": "/dogs-info/static/css/main.6bb6117d.css.map",
+    "main.1d470eb5.js.map": "/dogs-info/static/js/main.1d470eb5.js.map",
     "787.9a587622.chunk.js.map": "/dogs-info/static/js/787.9a587622.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b924d91.css",
-    "static/js/main.afdb8e54.js"
+    "static/css/main.6bb6117d.css",
+    "static/js/main.1d470eb5.js"
   ]
 }
