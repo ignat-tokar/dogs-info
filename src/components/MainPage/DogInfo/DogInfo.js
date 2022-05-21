@@ -9,7 +9,7 @@ function BreedInfo({ title, info }) {
   );
 }
 
-function DogInfo({ url, breed }) {
+function DogInfo({ url, breed, imageId }) {
 
   const [isFavourite, setIsFavourite] = useState(false);
   const [needUpdate, setNeedUpdate] = useState(false);
@@ -17,7 +17,7 @@ function DogInfo({ url, breed }) {
 
   useEffect(() => {
     favouritesAPI.getFavourites().then(data => {
-      if (data.find((value) => value.image_id === breed.image.id)) {
+      if (data.find((value) => value.image_id === imageId)) {
         setIsFavourite(true);
         setShowPreloader(false);
       }
@@ -26,7 +26,7 @@ function DogInfo({ url, breed }) {
 
   function addToFavourites() {
     setShowPreloader(true);
-    favouritesAPI.postFavourites(breed.image.id).then(data => {
+    favouritesAPI.postFavourites(imageId).then(data => {
       setNeedUpdate(true);
     });
   }

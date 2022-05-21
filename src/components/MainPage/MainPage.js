@@ -6,7 +6,7 @@ function MainPage({breeds}) {
   const breedsArray = breeds.map(breed => {
     return (
       <div key={breed.id}>
-        <DogInfo url={breed.image.url} breed={breed} />
+        <DogInfo url={breed.image.url} breed={breed} imageId={breed.image.id} />
       </div>
     )
   })

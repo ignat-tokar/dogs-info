@@ -14,7 +14,6 @@ function FavouriteDog({ favourite_id, image_id, image_url }) {
   }, []);
 
   function removeFromFavourite(){
-    console.log(`remove ${favourite_id}`);
     favouritesAPI.deleteFavourite(favourite_id);
   }
 
@@ -22,9 +21,9 @@ function FavouriteDog({ favourite_id, image_id, image_url }) {
     <>
       {breed
         ? <>
-          <p>{breed.name}</p>
-          <img src={image_url} />
+          <DogInfo url={image_url} breed={breed} imageId={image_id} />
           <button onClick={removeFromFavourite}>Remove from favourite</button>
+          <hr />
         </>
         : <p>Loading ...</p>
       }
@@ -36,7 +35,6 @@ function FavouritesPage({ favourites }) {
 
   return (
     <>
-      <h1>hello</h1>
       {favourites.map(dog => {
         return (
           <>
