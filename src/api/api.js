@@ -16,7 +16,7 @@ const instancePost = (path, data) => instance.post(path, data)
 const instanceDelete = path => instance.delete(path).then(response => response.data);
 
 export const breedsAPI = {
-  getBreeds: (page = 0, limit = 10) => 
+  getBreeds: (page = 0, limit = 5) => 
     instanceGet(`breeds?limit=${limit}&page=${page}`),
   getBreedById: (breed_id = 2) => instanceGet(`breeds/${breed_id}`)
 }

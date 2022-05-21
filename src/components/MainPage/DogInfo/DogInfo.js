@@ -7,7 +7,6 @@ function BreedInfo ({title, info}){
 }
 
 function DogInfo({ url, breed }) {
-  console.log(breed);
   return (
     <>
       <img src={url} />

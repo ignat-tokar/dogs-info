@@ -2,15 +2,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { breedsAPI, favouritesAPI, imagesAPI, votesAPI } from './api/api';
 import './App.css';
-import DogInfo from './components/DogInfo';
+import MainPage from './components/MainPage/MainPage';
+import MainPageContainer from './components/MainPage/MainPageContainer';
 
 
 function App() {
 
   return (
-    <div className="App">
-      <h1>Soon here would be UI.</h1>
-    </div>
+    <MainPageContainer />
   );
 }
 
