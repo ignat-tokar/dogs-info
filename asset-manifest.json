@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ignat-tokar/dogs-info/static/css/main.cc6430c1.css",
-    "main.js": "/ignat-tokar/dogs-info/static/js/main.1bcd33c2.js",
-    "static/js/787.9a587622.chunk.js": "/ignat-tokar/dogs-info/static/js/787.9a587622.chunk.js",
-    "index.html": "/ignat-tokar/dogs-info/index.html",
-    "main.cc6430c1.css.map": "/ignat-tokar/dogs-info/static/css/main.cc6430c1.css.map",
-    "main.1bcd33c2.js.map": "/ignat-tokar/dogs-info/static/js/main.1bcd33c2.js.map",
-    "787.9a587622.chunk.js.map": "/ignat-tokar/dogs-info/static/js/787.9a587622.chunk.js.map"
+    "main.css": "/dogs-info/static/css/main.cc6430c1.css",
+    "main.js": "/dogs-info/static/js/main.c9575ea2.js",
+    "static/js/787.9a587622.chunk.js": "/dogs-info/static/js/787.9a587622.chunk.js",
+    "index.html": "/dogs-info/index.html",
+    "main.cc6430c1.css.map": "/dogs-info/static/css/main.cc6430c1.css.map",
+    "main.c9575ea2.js.map": "/dogs-info/static/js/main.c9575ea2.js.map",
+    "787.9a587622.chunk.js.map": "/dogs-info/static/js/787.9a587622.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cc6430c1.css",
-    "static/js/main.1bcd33c2.js"
+    "static/js/main.c9575ea2.js"
   ]
 }
