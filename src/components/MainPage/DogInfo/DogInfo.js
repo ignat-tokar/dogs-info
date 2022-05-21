@@ -1,3 +1,4 @@
+import { favouritesAPI } from '../../../api/api';
 import styles from './DogInfo.modules.css';
 
 function BreedInfo ({title, info}){
@@ -7,9 +8,12 @@ function BreedInfo ({title, info}){
 }
 
 function DogInfo({ url, breed }) {
+
   return (
     <>
-      <img src={url} />
+      <div>
+        <img src={url} />
+      </div>
       <h2>"{breed.name}"</h2>
       <BreedInfo title="Life span: " info={`${breed.life_span} years`} />
       <BreedInfo title="Bred for: " info={breed.bred_for} />

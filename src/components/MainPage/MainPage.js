@@ -1,4 +1,5 @@
 import DogInfo from "./DogInfo/DogInfo";
+import Paginator from "./../../common/Paginator/Paginator";
 
 function MainPage({breeds}) {
 
@@ -11,7 +12,9 @@ function MainPage({breeds}) {
   })
 
   return (
-    <>{breedsArray}</>
+    <>
+      {breedsArray}
+    </>
   );
 }
 
