@@ -23,7 +23,11 @@ function App() {
     <div className="App">
       {(dog && breed)
         ? <DogInfo url={dog.url} breed={breed} />
-        : <h1>Hello</h1>
+        : 
+        <>
+          <h1>Loading, please wait ...</h1>
+          <h3>If loading wouldn't be completed about 5 seconds please reload the page.</h3>
+        </>
       }
     </div>
   );
