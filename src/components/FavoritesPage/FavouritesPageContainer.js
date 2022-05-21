@@ -8,27 +8,13 @@ function FavouritesPageContainer() {
   const [favourites, setFavourites] = useState(null);
 
   useEffect(() => {
-    let array = [];
     favouritesAPI.getFavourites().then(data=>{
-      data.map(favourite=>{
-        imagesAPI.getBreedInfoByImageId(favourite.image_id)
-          .then(breedData=>{
-            array = [...array, breedData];
-            if(array.length === data.length){
-              setFavourites(array);
-            }
-          });
-      })
+      setFavourites(data);
     });
   }, []);
-  
-  function showFav(){
-    console.log(favourites);
-  }
 
   return (
     <>
-      <button onClick={showFav}>Show</button>
       {favourites
         ? <FavouritesPage favourites={favourites} />
         : <Preloader />
