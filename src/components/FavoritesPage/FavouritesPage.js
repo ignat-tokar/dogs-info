@@ -34,13 +34,13 @@ function FavouritesPage({ favourites }) {
     <>
       {favourites.map(dog => {
         return (
-          <>
+          <div key={dog.id}>
             <FavouriteDog 
               favouriteId={dog.id} 
               imageId={dog.image.id} 
               imageUrl={dog.image.url}
             />
-          </>
+          </div>
         )
       })}
     </>

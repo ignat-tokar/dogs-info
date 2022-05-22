@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import FavouritesPage from "./FavouritesPage";
 import Preloader from "./../../common/Preloader/Preloader";
 import { favouritesAPI, imagesAPI } from "../../api/api";
+import { NavLink } from "react-router-dom";
 
 function FavouritesPageContainer() {
 
@@ -16,7 +17,11 @@ function FavouritesPageContainer() {
   return (
     <>
       {favourites
-        ? <FavouritesPage favourites={favourites} />
+        ? <>
+          <NavLink to="/dogs-info">Go Back</NavLink>
+          <p>  </p>
+          <FavouritesPage favourites={favourites} />
+        </>
         : <Preloader />
       }
     </>

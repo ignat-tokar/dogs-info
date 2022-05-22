@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { breedsAPI, imagesAPI } from "../../api/api";
 import RandomPage from "./RandomPage";
 import Preloader from "./../../common/Preloader/Preloader";
+import { NavLink } from "react-router-dom";
 
 function RandomPageContainer() {
 
@@ -27,6 +28,8 @@ function RandomPageContainer() {
     <>
       {breed
         ? <>
+          <NavLink to="/dogs-info">Go Back</NavLink>
+          <p>  </p>
           <RandomPage
             imageId={breed.image.id}
             imageUrl={breed.image.url}

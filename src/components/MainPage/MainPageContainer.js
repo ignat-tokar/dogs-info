@@ -3,6 +3,7 @@ import Paginator from '../../common/Paginator/Paginator';
 import Preloader from '../../common/Preloader/Preloader';
 import { breedsAPI } from './../../api/api';
 import MainPage from './MainPage';
+import { NavLink } from 'react-router-dom';
 
 function MainPageContainer(){
 
@@ -26,7 +27,13 @@ function MainPageContainer(){
     <>
       {showPreloader 
         ? <Preloader /> 
-        : <>{breeds && <MainPage breeds={breeds} />}</>
+        : <>{breeds && <>
+            <NavLink to="/favourites">Favourites</NavLink>
+            <p>  </p>
+            <NavLink to="/random">Random</NavLink>
+            <p>  </p>
+            <MainPage breeds={breeds} />
+          </>}</>
       } 
       <Paginator currentPage={currentPage} onPageChanged={onPageChanged} />
     </>
