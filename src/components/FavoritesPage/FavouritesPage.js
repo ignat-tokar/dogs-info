@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { favouritesAPI, imagesAPI } from "../../api/api";
+import { imagesAPI } from "../../api/api";
 import DogInfoContainer from "./../DogInfo/DogInfoContainer";
 
 function FavouriteDog({ favouriteId, imageId, imageUrl }) {
@@ -10,11 +10,7 @@ function FavouriteDog({ favouriteId, imageId, imageUrl }) {
     imagesAPI.getBreedInfoByImageId(imageId).then(data => {
       setBreed(data[0]);
     });
-  }, []);
-
-  function removeFromFavourite(){
-    favouritesAPI.deleteFavourite(favouriteId);
-  }
+  }, [imageId]);
 
   return (
     <>

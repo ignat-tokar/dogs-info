@@ -4,6 +4,7 @@ import Preloader from '../../common/Preloader/Preloader';
 import { breedsAPI } from './../../api/api';
 import MainPage from './MainPage';
 import { NavLink } from 'react-router-dom';
+import SearchComponent from '../SearchComponent/SearchComponent';
 
 function MainPageContainer(){
 
@@ -31,6 +32,8 @@ function MainPageContainer(){
             <NavLink to="/favourites">Favourites</NavLink>
             <p>  </p>
             <NavLink to="/random">Random</NavLink>
+            <p>  </p>
+            <SearchComponent />
             <p>  </p>
             <MainPage breeds={breeds} />
           </>}</>

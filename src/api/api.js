@@ -18,7 +18,8 @@ const instanceDelete = path => instance.delete(path).then(response => response.d
 export const breedsAPI = {
   getBreeds: (page = 0, limit = 5) => 
     instanceGet(`breeds?limit=${limit}&page=${page}`),
-  getBreedById: (breed_id = 2) => instanceGet(`breeds/${breed_id}`)
+  getBreedById: (breedId = 2) => instanceGet(`breeds/${breedId}`),
+  getBreedByName: breedName => instanceGet(`breeds/search/?q=${breedName}`)
 }
 
 export const imagesAPI = {
@@ -29,8 +30,8 @@ export const imagesAPI = {
 
 export const favouritesAPI = {
   getFavourites: () => instanceGet('favourites'),
-  postFavourites: image_id => instancePost('favourites', {image_id}),
-  deleteFavourite: favourite_id => instanceDelete(`favourites/${favourite_id}`)
+  postFavourites: imageId => instancePost('favourites', {imageId}),
+  deleteFavourite: favouriteId => instanceDelete(`favourites/${favouriteId}`)
 }
 
 export const votesAPI = {
