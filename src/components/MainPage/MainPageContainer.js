@@ -29,9 +29,9 @@ function MainPageContainer(){
       {showPreloader 
         ? <Preloader /> 
         : <>{breeds && <>
-            <NavLink to="/favourites">Favourites</NavLink>
+            <NavLink to="/dogs-info/favourites">Favourites</NavLink>
             <p>  </p>
-            <NavLink to="/random">Random</NavLink>
+            <NavLink to="/dogs-info/random">Random</NavLink>
             <p>  </p>
             <SearchComponent />
             <p>  </p>

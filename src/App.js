@@ -11,8 +11,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/dogs-info' element={<MainPageContainer />} />
-          <Route path='/favourites' element={<FavouritesPageContainer />} />
-          <Route path='/random' element={<RandomPageContainer />} />
+          <Route path='/dogs-info/favourites' element={<FavouritesPageContainer />} />
+          <Route path='/dogs-info/random' element={<RandomPageContainer />} />
         </Routes>
       </BrowserRouter>
   );

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { favouritesAPI } from "../../api/api";
 import DogInfo from "./DogInfo";
 
-function DogInfoContainer ({imageId, imageUrl, breed}) {
+function DogInfoContainer ({imageId, imageUrl, breed }) {
   
   const [isFavourite, setIsFavourite] = useState(false);
   const [needUpdate, setNeedUpdate] = useState(false);
@@ -17,7 +17,7 @@ function DogInfoContainer ({imageId, imageUrl, breed}) {
       } 
       setShowPreloader(false);
     });
-  }, [needUpdate]);
+  }, [needUpdate, imageId]);
 
   function addToFavourites() {
     setShowPreloader(true);

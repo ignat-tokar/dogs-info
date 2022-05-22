@@ -16,7 +16,11 @@ function FavouriteDog({ favouriteId, imageId, imageUrl }) {
     <>
       {breed
         ? <>
-          <DogInfoContainer imageId={imageId} imageUrl={imageUrl} breed={breed}  />
+          <DogInfoContainer 
+            imageId={imageId}
+            imageUrl={imageUrl}
+            breed={breed}
+          />
         </>
         : <p>Loading ...</p>
       }
