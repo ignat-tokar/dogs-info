@@ -1,23 +1,21 @@
 import { useEffect, useState } from "react";
-import { imagesAPI } from "../../api/api";
+import { breedsAPI, imagesAPI } from "../../api/api";
 import RandomPage from "./RandomPage";
 import Preloader from "./../../common/Preloader/Preloader";
 
 function RandomPageContainer() {
 
-  const [breedInfo, setBreedInfo] = useState(null);
-  const [imageId, setImageId] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
+  const [breed, setBreed] = useState(null);
+
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  } 
 
   function getImage() {
-    setBreedInfo(null);
-    imagesAPI.getRandomImage().then(randomImage => {
-      setImageId(randomImage[0].id);
-      setImageUrl(randomImage[0].url); 
-      imagesAPI.getBreedInfoByImageId(randomImage[0].id).then(data => {
-        setBreedInfo(data[0]);
-        console.log(data[0]);
-      });
+    setBreed(null);
+    let randomId = getRandomInt(99);
+    breedsAPI.getBreeds(0, 100).then(data => {
+      setBreed(data[randomId]);    
     });
   }
 
@@ -27,16 +25,16 @@ function RandomPageContainer() {
 
   return (
     <>
-      {breedInfo && imageId && imageUrl
+      {breed
         ? <>
           <RandomPage
-            imageId={imageId}
-            imageUrl={imageUrl}
-            breed={breedInfo} />
+            imageId={breed.image.id}
+            imageUrl={breed.image.url}
+            breed={breed} />
+          <button onClick={getImage}>Again</button>
         </>
         : <Preloader />
       }
-      <button onClick={getImage}>Random</button>
     </>
   );
 }
