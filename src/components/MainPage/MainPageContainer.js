@@ -7,12 +7,12 @@ import MainPage from './MainPage';
 function MainPageContainer(){
 
   const [breeds, setBreeds] = useState(null);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [showPreloader, setShowPreloader] = useState(false);
 
   useEffect(()=>{
     setShowPreloader(true);
-    breedsAPI.getBreeds(currentPage).then(data=>{
+    breedsAPI.getBreeds(currentPage-1).then(data=>{
       setBreeds(data);
       setShowPreloader(false);
     });
@@ -24,11 +24,11 @@ function MainPageContainer(){
 
   return (
     <>
-      <Paginator currentPage={currentPage} onPageChanged={onPageChanged} />
       {showPreloader 
         ? <Preloader /> 
         : <>{breeds && <MainPage breeds={breeds} />}</>
       } 
+      <Paginator currentPage={currentPage} onPageChanged={onPageChanged} />
     </>
   );
 }

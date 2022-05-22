@@ -23,7 +23,8 @@ export const breedsAPI = {
 
 export const imagesAPI = {
   getImageById: id => instanceGet(`images/${id}`),
-  getBreedInfoByImageId: id => instanceGet(`images/${id}/breeds`)
+  getBreedInfoByImageId: id => instanceGet(`images/${id}/breeds`),
+  getRandomImage: () => instanceGet('images/search')
 }
 
 export const favouritesAPI = {
