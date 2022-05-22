@@ -1,46 +1,33 @@
 import { useEffect, useState } from 'react';
-import { favouritesAPI } from '../../../api/api';
+import { favouritesAPI } from '../../api/api';
 import styles from './DogInfo.modules.css';
-import Preloader from './../../../common/Preloader/Preloader';
+import Preloader from '../../common/Preloader/Preloader';
 
 function BreedInfo({ title, info }) {
-  return (
-    <h3><span style={styles}>{title}</span>{info}</h3>
-  );
+  return <h3><span style={styles}>{title}</span>{info}</h3>;
 }
 
-function DogInfo({ url, breed, imageId }) {
+function DogInfo(props) {
 
-  const [isFavourite, setIsFavourite] = useState(false);
-  const [needUpdate, setNeedUpdate] = useState(false);
-  const [showPreloader, setShowPreloader] = useState(false);
-
-  useEffect(() => {
-    favouritesAPI.getFavourites().then(data => {
-      if (data.find((value) => value.image_id === imageId)) {
-        setIsFavourite(true);
-        setShowPreloader(false);
-      }
-    });
-  }, [needUpdate]);
-
-  function addToFavourites() {
-    setShowPreloader(true);
-    favouritesAPI.postFavourites(imageId).then(data => {
-      setNeedUpdate(true);
-    });
-  }
+  const { 
+    imageId, 
+    imageUrl, 
+    breed, 
+    isFavourite, 
+    showPreloader, 
+    addToFavourites,
+    removeFromFavourites
+  } = props;
 
   return (
     <>
       {showPreloader
         ? <Preloader />
         : <>
-          
           <div>
-            <img src={url} />
+            <img src={imageUrl} />
             {isFavourite
-              ? <>Is favourite</>
+              ? <button onClick={removeFromFavourites}>Remove from favourites</button>
               : <button onClick={addToFavourites}>Add to favourite</button>
             }
           </div>

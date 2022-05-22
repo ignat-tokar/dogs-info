@@ -1,12 +1,14 @@
-import DogInfo from "./DogInfo/DogInfo";
-import Paginator from "./../../common/Paginator/Paginator";
+import DogInfoContainer from "./../DogInfo/DogInfoContainer";
 
 function MainPage({breeds}) {
 
   const breedsArray = breeds.map(breed => {
     return (
       <div key={breed.id}>
-        <DogInfo url={breed.image.url} breed={breed} imageId={breed.image.id} />
+        <DogInfoContainer 
+          imageId={breed.image.id} 
+          imageUrl={breed.image.url} 
+          breed={breed}  />
       </div>
     )
   })
