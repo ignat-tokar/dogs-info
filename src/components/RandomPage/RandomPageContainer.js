@@ -3,43 +3,38 @@ import { breedsAPI, imagesAPI } from "../../api/api";
 import RandomPage from "./RandomPage";
 import Preloader from "./../../common/Preloader/Preloader";
 import { NavLink } from "react-router-dom";
+import { getRandomBreed } from "../../redux/random-reducer";
+import { connect } from "react-redux";
 
-function RandomPageContainer() {
-
-  const [breed, setBreed] = useState(null);
-
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  } 
-
-  function getImage() {
-    setBreed(null);
-    let randomId = getRandomInt(99);
-    breedsAPI.getBreeds(0, 100).then(data => {
-      setBreed(data[randomId]);    
-    });
-  }
+function RandomPageContainer({ preloader, randomBreed, getRandomBreed }) {
 
   useEffect(() => {
-    getImage();
-  }, []);
+    getRandomBreed();
+  }, [getRandomBreed]);
 
   return (
     <>
-      {breed
-        ? <>
+      {preloader
+        ? <Preloader />
+        : <>
           <NavLink to="/dogs-info">Go Back</NavLink>
           <p>  </p>
           <RandomPage
-            imageId={breed.image.id}
-            imageUrl={breed.image.url}
-            breed={breed} />
-          <button onClick={getImage}>Again</button>
+            imageId={randomBreed.image.id}
+            imageUrl={randomBreed.image.url}
+            breed={randomBreed} />
+          <button onClick={getRandomBreed}>Again</button>
         </>
-        : <Preloader />
       }
     </>
   );
 }
 
-export default RandomPageContainer;
+function mapStateToProps(state) {
+  return {
+    preloader: state.randomPage.preloader,
+    randomBreed: state.randomPage.randomBreed
+  }
+}
+
+export default connect(mapStateToProps, { getRandomBreed })(RandomPageContainer);

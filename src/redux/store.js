@@ -2,11 +2,12 @@ import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import mainReducer from "./main-reducer";
 import thunkMiddleware from "redux-thunk";
 import favouritesReducer from "./favourites-reducer";
+import randomReducer from "./random-reducer";
 
 let reducers = combineReducers({
     mainPage: mainReducer,
     favouritesPage: favouritesReducer,
-    // randomPage: randomReducer,
+    randomPage: randomReducer,
     // searchComponent: searchReducer,
     // dogInfoComponent: dogInfoReducer
 });
