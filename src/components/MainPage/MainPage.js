@@ -1,7 +1,6 @@
 import DogInfoContainer from "./../DogInfo/DogInfoContainer";
 
-function MainPage({breeds}) {
-
+function MainPage({ breeds }) {
   const breedsArray = breeds.map(breed => {
     return (
       <div key={breed.id}>
@@ -12,7 +11,6 @@ function MainPage({breeds}) {
       </div>
     )
   })
-
   return (
     <>
       {breedsArray}

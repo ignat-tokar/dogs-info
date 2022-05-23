@@ -12,29 +12,27 @@ function DogInfoContainer ({imageId, imageUrl, breed }) {
     favouritesAPI.getFavourites().then(data => {
       if (data.find((value) => value.image_id === imageId)) {
         setIsFavourite(true);
-      } else{
-        setIsFavourite(false);
-      } 
+      }
       setShowPreloader(false);
     });
-  }, [needUpdate, imageId]);
+  }, [ needUpdate ]);
 
   function addToFavourites() {
-    setShowPreloader(true);
-    favouritesAPI.postFavourites(imageId).then(data => {
-      setNeedUpdate(!needUpdate);
-    });
+    // setShowPreloader(true);
+    // favouritesAPI.postFavourites(imageId).then(data => {
+    //   setIsFavourite(true);
+    // });
   }
   
   function removeFromFavourites() {
-    setShowPreloader(true);
-    favouritesAPI.getFavourites().then(data =>{
-      let favouriteId = data.filter(favouriteItem => 
-        favouriteItem.image_id === imageId)[0].id;
-      favouritesAPI.deleteFavourite(favouriteId).then(data => {
-        setNeedUpdate(!needUpdate);
-      });
-    });
+    // setShowPreloader(true);
+    // favouritesAPI.getFavourites().then(data =>{
+    //   let favouriteId = data.filter(favouriteItem => 
+    //     favouriteItem.image_id === imageId)[0].id;
+    //   favouritesAPI.deleteFavourite(favouriteId).then(data => {
+    //     setIsFavourite(false);
+    //   });
+    // });
   }
 
   return(

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { imagesAPI } from "../../api/api";
-import DogInfoContainer from "./../DogInfo/DogInfoContainer";
+import DogInfoContainer from "../DogInfo/DogInfoContainer";
 
 function FavouriteDog({ favouriteId, imageId, imageUrl }) {
 
