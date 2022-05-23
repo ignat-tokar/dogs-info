@@ -1,28 +1,17 @@
 import { useEffect, useState } from "react";
+import { connect } from "react-redux";
 import { breedsAPI } from "../../api/api";
 import Preloader from "../../common/Preloader/Preloader";
+import { getFoundBreeds } from "../../redux/search-reducer";
 import SearchField from "./SearchField";
 import SearchResult from "./SearchResult";
 
-function SearchComponent() {
-
+function SearchComponent({ foundBreeds, preloader, getFoundBreeds }) {
+  
   const [inputValue, setInputValue] = useState('');
-  const [foundBreeds, setFoundBreeds] = useState(null);
-  const [showPreloader, setShowPreloader] = useState(false);
 
-  useEffect(()=>{}, [showPreloader]);
-
-  function inputOnChange(e) {
-    setInputValue(e.target.value);
-  }
-
-  function searchFunction() {
-    setShowPreloader(true);
-    breedsAPI.getBreedByName(inputValue).then(data => {
-      setFoundBreeds(data);
-      setShowPreloader(false);
-    })
-  }
+  const inputOnChange = e => setInputValue(e.target.value)
+  const searchFunction = () => getFoundBreeds(inputValue);
 
   return (
     <>
@@ -31,16 +20,21 @@ function SearchComponent() {
         inputValue={inputValue}
         inputOnChange={inputOnChange}
       />
-      {showPreloader
+      {preloader
         ? <Preloader />
         : <>
           {foundBreeds && <SearchResult foundBreeds={foundBreeds} />}
         </>
       }
-
-
     </>
   );
 }
 
-export default SearchComponent;
+function mapStateToProps(state) {
+  return {
+    foundBreeds: state.searchComponent.foundBreeds,
+    preloader: state.searchComponent.preloader
+  }
+}
+
+export default connect(mapStateToProps, { getFoundBreeds }) (SearchComponent);

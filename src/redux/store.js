@@ -3,12 +3,13 @@ import mainReducer from "./main-reducer";
 import thunkMiddleware from "redux-thunk";
 import favouritesReducer from "./favourites-reducer";
 import randomReducer from "./random-reducer";
+import searchReducer from "./search-reducer";
 
 let reducers = combineReducers({
     mainPage: mainReducer,
     favouritesPage: favouritesReducer,
     randomPage: randomReducer,
-    // searchComponent: searchReducer,
+    searchComponent: searchReducer,
     // dogInfoComponent: dogInfoReducer
 });
 

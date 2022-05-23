@@ -1,40 +1,34 @@
-import { useEffect, useState } from "react";
-import { breedsAPI, imagesAPI } from "../../api/api";
+import { connect } from "react-redux";
 import Preloader from "../../common/Preloader/Preloader";
+import { getDetailInfo } from "../../redux/search-reducer";
 import DogInfoContainer from "../DogInfo/DogInfoContainer";
 
-function SearchResult({ foundBreeds }) {
-
-  const [breed, setBreed] = useState(null);
-  const [showPreloader, setShowPreloader] = useState(false);
-
-  useEffect(()=>{},[breed]);
+function SearchResult({ 
+  foundBreeds,
+  detailPreloader,
+  detailInfo,
+  getDetailInfo
+ }) {
 
   function showDetailInfo(e) {
-    setShowPreloader(true);
-    breedsAPI.getBreedById(e.target.id).then(breedData => {
-      imagesAPI.getImageById(breedData.reference_image_id).then(data => {
-        setBreed(data);
-        setShowPreloader(false);
-      });
-    });
+    getDetailInfo(e.target.id);
   }
 
   return (
     <>
-      {showPreloader
+      {detailPreloader
         ? <Preloader />
-        : <>{breed && <DogInfoContainer 
-          imageId={breed.id} 
-          imageUrl={breed.url}
-          breed={breed.breeds[0]}  
+        : <>{detailInfo && <DogInfoContainer 
+          imageId={detailInfo.id} 
+          imageUrl={detailInfo.url}
+          breed={detailInfo.breeds[0]}  
         />}</>
       }
    
       {foundBreeds.map(breed => {
         return (
           <p key={breed.id}>
-            <button id={breed.id}onClick={showDetailInfo}>{breed.name}</button>
+            <button id={breed.id} onClick={showDetailInfo}>{breed.name}</button>
           </p>
         );
       })}
@@ -42,4 +36,12 @@ function SearchResult({ foundBreeds }) {
   );
 }
 
-export default SearchResult;
+function mapStateToProps(state) {
+  return {
+    foundBreeds: state.searchComponent.foundBreeds,
+    detailPreloader: state.searchComponent.detailPreloader,
+    detailInfo: state.searchComponent.detailInfo
+  }
+}
+
+export default connect(mapStateToProps, { getDetailInfo })(SearchResult);
