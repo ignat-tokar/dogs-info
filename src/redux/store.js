@@ -4,13 +4,14 @@ import thunkMiddleware from "redux-thunk";
 import favouritesReducer from "./favourites-reducer";
 import randomReducer from "./random-reducer";
 import searchReducer from "./search-reducer";
+import dogInfoReducer from "./dog-info-reducer";
 
 let reducers = combineReducers({
     mainPage: mainReducer,
     favouritesPage: favouritesReducer,
     randomPage: randomReducer,
     searchComponent: searchReducer,
-    // dogInfoComponent: dogInfoReducer
+    dogInfoComponent: dogInfoReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -1,38 +1,26 @@
-import { useEffect, useState } from "react";
-import { favouritesAPI } from "../../api/api";
+import { useEffect } from "react";
+import { connect } from "react-redux";
+import { addToFavouritesThunk, checkIsFavourite, removeFromFavouritesThunk } from "../../redux/dog-info-reducer";
 import DogInfo from "./DogInfo";
 
-function DogInfoContainer ({imageId, imageUrl, breed }) {
-  
-  const [isFavourite, setIsFavourite] = useState(false);
-  const [needUpdate, setNeedUpdate] = useState(false);
-  const [showPreloader, setShowPreloader] = useState(false);
+function DogInfoContainer ({ 
+  imageId,
+  imageUrl,
+  breed,
+  isFavourite,
+  preloader,
+  checkIsFavourite,
+  addToFavouritesThunk,
+  removeFromFavouritesThunk
+ }) {
 
-  useEffect(() => {
-    favouritesAPI.getFavourites().then(data => {
-      if (data.find((value) => value.image_id === imageId)) {
-        setIsFavourite(true);
-      }
-      setShowPreloader(false);
-    });
-  }, [ needUpdate ]);
+  useEffect(() => {checkIsFavourite(imageId)}, [imageId, checkIsFavourite]);
 
-  function addToFavourites() {
-    // setShowPreloader(true);
-    // favouritesAPI.postFavourites(imageId).then(data => {
-    //   setIsFavourite(true);
-    // });
+  const addToFavourites = () => {
+    addToFavouritesThunk(imageId);
   }
-  
-  function removeFromFavourites() {
-    // setShowPreloader(true);
-    // favouritesAPI.getFavourites().then(data =>{
-    //   let favouriteId = data.filter(favouriteItem => 
-    //     favouriteItem.image_id === imageId)[0].id;
-    //   favouritesAPI.deleteFavourite(favouriteId).then(data => {
-    //     setIsFavourite(false);
-    //   });
-    // });
+  const removeFromFavourites = () => {
+    removeFromFavouritesThunk(imageId);
   }
 
   return(
@@ -41,11 +29,22 @@ function DogInfoContainer ({imageId, imageUrl, breed }) {
       imageUrl={imageUrl}
       breed={breed}
       isFavourite={isFavourite}
-      showPreloader={showPreloader}
+      showPreloader={preloader}
       addToFavourites={addToFavourites}
       removeFromFavourites={removeFromFavourites}
     />
   );
 }
 
-export default DogInfoContainer;
+function mapStateToProps(state) {
+  return {
+    isFavourite: state.dogInfoComponent.isFavourite,
+    preloader: state.dogInfoComponent.preloader
+  }
+}
+
+export default connect(mapStateToProps, { 
+  checkIsFavourite,
+  addToFavouritesThunk,
+  removeFromFavouritesThunk
+ })(DogInfoContainer);
