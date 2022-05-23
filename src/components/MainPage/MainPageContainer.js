@@ -1,7 +1,6 @@
-import { useCallback, useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Paginator from '../../common/Paginator/Paginator';
 import Preloader from '../../common/Preloader/Preloader';
-import { breedsAPI } from './../../api/api';
 import MainPage from './MainPage';
 import { NavLink } from 'react-router-dom';
 import SearchComponent from '../SearchComponent/SearchComponent';
@@ -14,7 +13,7 @@ function MainPageContainer({ breeds, preloader, getBreeds }) {
 
   useEffect(() => {
     getBreeds(currentPage-1);
-  },[currentPage]);
+  },[getBreeds, currentPage]);
 
   function onPageChanged(page) {
     setCurrentPage(page);

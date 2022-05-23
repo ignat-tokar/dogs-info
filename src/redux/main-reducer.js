@@ -55,20 +55,14 @@ const mainReducer = (state = initialState, action) => {
 			return state;
 	}
 }
-export const setBreeds = (breeds) => ({ type: SET_BREEDS, breeds });
-export const setPreloader = (preloader) => ({ type: SET_PRELOADER, preloader});
-
-function setData(breeds, preloader) {
-	return dispatch => {
-		dispatch(setBreeds(breeds));
-		dispatch(setPreloader(preloader));
-	}
-}
+const setBreeds = (breeds) => ({ type: SET_BREEDS, breeds });
+const setPreloader = (preloader) => ({ type: SET_PRELOADER, preloader});
 
 export const getBreeds = (currentPage) => async (dispatch) => {
 	dispatch(setPreloader(true));
 	const response = await breedsAPI.getBreeds(currentPage);
-	dispatch(setData(response, false));
+	dispatch(setBreeds(response));
+	dispatch(setPreloader(false));
 }
 
 export default mainReducer;

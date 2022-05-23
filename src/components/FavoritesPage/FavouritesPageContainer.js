@@ -1,31 +1,35 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import FavouritesPage from "./FavouritesPage";
 import Preloader from "./../../common/Preloader/Preloader";
-import { favouritesAPI, imagesAPI } from "../../api/api";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { getFavouritesBreeds } from "../../redux/favourites-reducer";
 
-function FavouritesPageContainer() {
-
-  const [favourites, setFavourites] = useState(null);
+function FavouritesPageContainer(
+  { preloader, favouritesBreeds, getFavouritesBreeds }) {
 
   useEffect(() => {
-    favouritesAPI.getFavourites().then(data=>{
-      setFavourites(data);
-    });
+    getFavouritesBreeds();
   }, []);
 
   return (
     <>
-      {favourites
-        ? <>
+      {preloader
+        ? <Preloader />
+        : <>
           <NavLink to="/dogs-info">Go Back</NavLink>
           <p>  </p>
-          <FavouritesPage favourites={favourites} />
-        </>
-        : <Preloader />
+          <FavouritesPage favourites={favouritesBreeds} />
+        </>        
       }
     </>
   );
 }
 
-export default FavouritesPageContainer;
+function mapStateToProps(state) {
+  return {
+    favouritesBreeds: state.favouritesPage.favouritesBreeds
+  }
+}
+
+export default connect(mapStateToProps, { getFavouritesBreeds })(FavouritesPageContainer);
