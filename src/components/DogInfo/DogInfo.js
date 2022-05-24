@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { favouritesAPI } from '../../api/api';
-import styles from './DogInfo.modules.css';
+import styles from './DogInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
 
 function BreedInfo({ title, info }) {

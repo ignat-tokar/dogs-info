@@ -1,18 +1,18 @@
 import { NavLink } from "react-router-dom";
+import mainBackgroundImage from "./../../assets/images/mainBackgroundImage.jpg";
 import SearchComponent from "../SearchComponent/SearchComponent";
+import styles from "./HeaderComponent.module.css";
 
 function HeaderComponent() {
   return (
-    <>
-      <NavLink to="/dogs-info">All</NavLink>
-      <p>  </p>
-      <NavLink to="/dogs-info/favourites">Favourites</NavLink>
-      <p>  </p>
-      <NavLink to="/dogs-info/random">Random</NavLink>
-      <p>  </p>
+    <div className={styles.header} >
       <SearchComponent />
-      <p>  </p>
-    </>
+      <div className={styles.wrapper}>
+        <NavLink className={styles.navlink} to="/dogs-info">All</NavLink>
+        <NavLink className={styles.navlink} to="/dogs-info/favourites">Favourites</NavLink>
+        <NavLink className={styles.navlink} to="/dogs-info/random">Random</NavLink>
+      </div>
+    </div>
   );
 }
 

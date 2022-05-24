@@ -1,0 +1,23 @@
+.header {
+  background-image: url('./../../assets/images/mainBackgroundImage.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position-y: top;
+  min-height: 60vh;
+}
+.header .wrapper .navlink {
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4pt;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-right: 20pt; 
+}
+.wrapper {
+  margin-top: 10%;
+  margin-left: 20%;
+}
