@@ -1,17 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { connect } from "react-redux";
-import { breedsAPI } from "../../api/api";
-import Preloader from "../../common/Preloader/Preloader";
+import { useNavigate } from "react-router-dom";
 import { getFoundBreeds } from "../../redux/search-reducer";
 import SearchField from "./SearchField";
-import SearchResult from "./SearchResult";
 
-function SearchComponent({ foundBreeds, preloader, getFoundBreeds }) {
+function SearchComponent({ foundBreeds, getFoundBreeds }) {
   
+  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState('');
 
   const inputOnChange = e => setInputValue(e.target.value)
-  const searchFunction = () => getFoundBreeds(inputValue);
+  const searchFunction = () => {
+    getFoundBreeds(inputValue);
+    navigate('/dogs-info/search-result');
+  }
 
   return (
     <>
@@ -20,12 +22,6 @@ function SearchComponent({ foundBreeds, preloader, getFoundBreeds }) {
         inputValue={inputValue}
         inputOnChange={inputOnChange}
       />
-      {preloader
-        ? <Preloader />
-        : <>
-          {foundBreeds && <SearchResult foundBreeds={foundBreeds} />}
-        </>
-      }
     </>
   );
 }
