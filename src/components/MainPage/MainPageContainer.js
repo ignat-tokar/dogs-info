@@ -6,14 +6,16 @@ import { NavLink } from 'react-router-dom';
 import SearchComponent from '../SearchComponent/SearchComponent';
 import { connect } from 'react-redux';
 import { getBreeds } from '../../redux/main-reducer';
+import { getFavouritesBreeds } from '../../redux/favourites-reducer';
 
-function MainPageContainer({ breeds, preloader, getBreeds }) {
+function MainPageContainer({ breeds, preloader, getBreeds, getFavouritesBreeds }) {
 
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
+    getFavouritesBreeds();
     getBreeds(currentPage-1);
-  },[getBreeds, currentPage]);
+  },[getFavouritesBreeds, getBreeds, currentPage]);
 
   function onPageChanged(page) {
     setCurrentPage(page);
@@ -49,4 +51,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {getBreeds})(MainPageContainer);
+export default connect(mapStateToProps, { getBreeds, getFavouritesBreeds })(MainPageContainer);

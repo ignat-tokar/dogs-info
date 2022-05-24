@@ -38,4 +38,19 @@ export const getFavouritesBreeds = () => async (dispatch) => {
   dispatch(setPreloader(false));
 }
 
+export const addToFavouritesThunk = (imageId) => async (dispatch) => {
+  dispatch(setPreloader(true));
+  await favouritesAPI.postFavourites(imageId);
+  dispatch(getFavouritesBreeds());
+}
+
+export const removeFromFavouritesThunk = (imageId) => async (dispatch) => {
+  dispatch(setPreloader(true));
+  const response = await favouritesAPI.getFavourites();
+  const favouriteId = response.filter(favouriteItem =>
+    favouriteItem.image_id === imageId)[0].id;
+  await favouritesAPI.deleteFavourite(favouriteId);
+  dispatch(getFavouritesBreeds());
+}
+
 export default favouritesReducer;

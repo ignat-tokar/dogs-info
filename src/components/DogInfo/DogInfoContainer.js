@@ -1,20 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { addToFavouritesThunk, checkIsFavourite, removeFromFavouritesThunk } from "../../redux/dog-info-reducer";
+import { addToFavouritesThunk, removeFromFavouritesThunk } from "../../redux/favourites-reducer";
 import DogInfo from "./DogInfo";
 
-function DogInfoContainer ({ 
+function DogInfoContainer({
   imageId,
   imageUrl,
   breed,
-  isFavourite,
   preloader,
-  checkIsFavourite,
+  favouritesBreeds,
   addToFavouritesThunk,
   removeFromFavouritesThunk
- }) {
+}) {
 
-  useEffect(() => {checkIsFavourite(imageId)}, [imageId, checkIsFavourite]);
+  const [isFavourite, setIsFavourite] = useState(false);
+
+  useEffect(() => {
+    setIsFavourite(false);
+    favouritesBreeds.map(favouriteBreed => {
+      if(favouriteBreed.image_id === imageId) 
+        setIsFavourite(true);
+    });
+  }, [favouritesBreeds]);
 
   const addToFavourites = () => {
     addToFavouritesThunk(imageId);
@@ -23,8 +30,8 @@ function DogInfoContainer ({
     removeFromFavouritesThunk(imageId);
   }
 
-  return(
-    <DogInfo 
+  return (
+    <DogInfo
       imageId={imageId}
       imageUrl={imageUrl}
       breed={breed}
@@ -38,13 +45,12 @@ function DogInfoContainer ({
 
 function mapStateToProps(state) {
   return {
-    isFavourite: state.dogInfoComponent.isFavourite,
-    preloader: state.dogInfoComponent.preloader
+    favouritesBreeds: state.favouritesPage.favouritesBreeds,
+    preloader: state.favouritesPage.preloader
   }
 }
 
-export default connect(mapStateToProps, { 
-  checkIsFavourite,
+export default connect(mapStateToProps, {
   addToFavouritesThunk,
-  removeFromFavouritesThunk
- })(DogInfoContainer);
+  removeFromFavouritesThunk,
+})(DogInfoContainer);

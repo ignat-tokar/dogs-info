@@ -30,7 +30,7 @@ export const imagesAPI = {
 
 export const favouritesAPI = {
   getFavourites: () => instanceGet('favourites'),
-  postFavourites: imageId => instancePost('favourites', {imageId}),
+  postFavourites: imageId => instancePost('favourites', {image_id: imageId}),
   deleteFavourite: favouriteId => instanceDelete(`favourites/${favouriteId}`)
 }
 

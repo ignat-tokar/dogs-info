@@ -18,7 +18,7 @@ function DogInfo(props) {
     addToFavourites,
     removeFromFavourites
   } = props;
-
+  
   return (
     <>
       {showPreloader
