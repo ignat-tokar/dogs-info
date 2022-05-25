@@ -5,11 +5,12 @@
 .search input {
   width: 60%;
   padding: 12px 20px;
-  margin: 8px 20px;
+  /* margin: 8px 20px; */
   box-sizing: border-box;
   border: 2px solid rgb(97, 97, 97);
   border-radius: 4pt;
   margin-top: 17%;
+  margin-bottom: 5pt;
 }
 .search input[type=text]:focus {
   border: 3px solid rgb(250, 247, 65);
@@ -24,4 +25,10 @@
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+}
+.search img {
+  width: 20pt;
+  height: 20pt;
+  cursor: pointer;
+  margin-left: 10pt;
 }

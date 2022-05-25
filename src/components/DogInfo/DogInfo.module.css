@@ -6,8 +6,8 @@
   background-position-y: top;
   min-height: 60vh;
   display: grid;
-  grid-template-areas: "image info";
-  grid-template-columns: '4fr' '8fr';
+  grid-template-areas: "image favourite info";
+  grid-template-columns: '4fr' '4fr' '4fr';
   padding: 40pt 40pt 40pt 40pt;
 }
 .imageWrapper {
@@ -15,18 +15,41 @@
   width: 300pt;
   height: 300pt;
   border-radius: 50%;
+  border-color: red;
+  border-style: solid;
   overflow: hidden;
+  margin-top: 20pt;
 }
 .imageWrapper img {
-  width: 300pt
+  width: 300pt;  
 }
 .infoWrapper {
   grid-area: info;
   text-align: right;
+}
+.infoWrapper .breedInfo {
+  padding-top: 0.5pt;
+}
+.infoWrapper img {
+  width: 30pt;
+  height: 30pt;
+  float: right;
+  padding-left: 20pt;
 }
 .infoWrapperLeft{
   color: #3B332B;
 }
 .infoWrapperRight{
   color: #FFC337;
+}
+.favouriteWrapper {
+  grid-area: favourite;
+}
+.favouriteWrapper img {
+  width: 50pt;
+  height: 50pt;
+  padding: 0 150pt;
+}
+.favouriteWrapper img:hover {
+  cursor: pointer;
 }

@@ -2,10 +2,30 @@ import styles from './DogInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
 import backgroundImageLeft from './../../assets/images/dog_info_background_left.png';
 import backgroundImageRight from './../../assets/images/dog_info_background_right.png';
-import lifeSpanGrey from "./../../assets/images/life_span_grey.png";
+import lifeSpanGrey from './../../assets/images/life_span_grey.png';
+import bredForGrey from './../../assets/images/bred_for_grey.png';
+import breedGroupGrey from './../../assets/images/breed_group_grey.png';
+import heightGrey from './../../assets/images/height_grey.png';
+import weightGrey from './../../assets/images/weight_grey.png';
+import temperamentGrey from './../../assets/images/temperament_grey.png';
 
-function BreedInfo({ title, info }) {
-  return <h3><span style={styles}>{title}</span>{info}</h3>;
+import lifeSpanYellow from './../../assets/images/life_span_yellow.png';
+import bredForYellow from './../../assets/images/bred_for_yellow.png';
+import breedGroupYellow from './../../assets/images/breed_group_yellow.png';
+import heightYellow from './../../assets/images/height_yellow.png';
+import weightYellow from './../../assets/images/weight_yellow.png';
+import temperamentYellow from './../../assets/images/temperament_yellow.png';
+
+import favouriteBorder from './../../assets/images/favourite_border.png';
+import favouriteFill from './../../assets/images/favourite_fill.png';
+
+function BreedInfo({ image, info }) {
+  return (
+    <div className={styles.breedInfo}>
+      <img src={image} />
+      <h3>{info}</h3>
+    </div>
+  );
 }
 
 function DogInfo(props) {
@@ -19,7 +39,7 @@ function DogInfo(props) {
     addToFavourites,
     removeFromFavourites
   } = props;
-
+  
   let scaleImage = breed.image.height > breed.image.width
     ? 300 / breed.image.width : 300 / breed.image.height;
   let imageHeight = breed.image.height * scaleImage;
@@ -36,10 +56,15 @@ function DogInfo(props) {
       {showPreloader
         ? <Preloader />
         : <>
-          <div className={styles.imageWrapper}><img style={{
-            height: `${imageHeight}pt`,
-            width: `${imageWidth}pt`
-          }} src={imageUrl} />
+          <div className={styles.imageWrapper} style={{
+            borderStyle: 'solid',
+            borderWidth: '5pt',
+            borderColor: isLeftPosition ? '#FFC337' : '#3B332B'
+          }}>
+            <img style={{
+              height: `${imageHeight}pt`,
+              width: `${imageWidth}pt`,
+            }} src={imageUrl} />
           </div>
           <div className={styles.infoWrapper}>
             <div className={(isLeftPosition)
@@ -47,21 +72,31 @@ function DogInfo(props) {
               : styles.infoWrapperRight
             }>
               <h1>"{breed.name}"</h1>
-              <BreedInfo title="Life span: " info={`${breed.life_span} years`} />
-              <BreedInfo title="Bred for: " info={breed.bred_for} />
-              <BreedInfo title="Breed group: " info={breed.breed_group} />
-              <BreedInfo title="Height: " info={`${breed.height.metric} cm`} />
-              <BreedInfo title="Wieght: " info={`${breed.weight.metric} kg`} />
-              <BreedInfo title="Temperament: " info={breed.temperament} />
-              <div>
-                <img src={lifeSpanGrey} />
-                <h3>{`${breed.life_span} years`}</h3>
-              </div>
-              {isFavourite
-                ? <button onClick={removeFromFavourites}>Remove from favourites</button>
-                : <button onClick={addToFavourites}>Add to favourite</button>
+              {isLeftPosition
+                ? <>
+                  {breed.life_span && <BreedInfo image={lifeSpanGrey} info={`${breed.life_span} years`} />}
+                  {breed.bred_for && <BreedInfo image={bredForGrey} info={breed.bred_for} />}
+                  {breed.breed_group && <BreedInfo image={breedGroupGrey} info={breed.breed_group} />}
+                  {breed.height.metric && <BreedInfo image={heightGrey} info={`${breed.height.metric} cm`} />}
+                  {breed.weight.metric && <BreedInfo image={weightGrey} info={`${breed.weight.metric} kg`} />}
+                  {breed.temperament && <BreedInfo image={temperamentGrey} info={breed.temperament} />}
+                </>
+                : <>
+                  {breed.life_span && <BreedInfo image={lifeSpanYellow} info={`${breed.life_span} years`} />}
+                  {breed.bred_for && <BreedInfo image={bredForYellow} info={breed.bred_for} />}
+                  {breed.breed_group && <BreedInfo image={breedGroupYellow} info={breed.breed_group} />}
+                  {breed.height.metric && <BreedInfo image={heightYellow} info={`${breed.height.metric} cm`} />}
+                  {breed.weight.metric && <BreedInfo image={weightYellow} info={`${breed.weight.metric} kg`} />}
+                  {breed.temperament && <BreedInfo image={temperamentYellow} info={breed.temperament} />}
+                </>
               }
             </div>
+          </div>
+          <div className={styles.favouriteWrapper}>
+            {isFavourite
+              ? <img src={favouriteBorder} onClick={removeFromFavourites} />
+              : <img src={favouriteFill} onClick={addToFavourites} />
+            }
           </div>
         </>
       }

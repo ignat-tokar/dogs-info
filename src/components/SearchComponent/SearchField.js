@@ -1,5 +1,5 @@
 import styles from './SearchField.module.css';
-
+import searchGrey from './../../assets/images/search_grey.png'
 function SearchField({ searchFunction, inputValue, inputOnChange }) {
 
   return (
@@ -9,7 +9,7 @@ function SearchField({ searchFunction, inputValue, inputOnChange }) {
         placeholder="Name of breed"
         value={inputValue}
         onChange={inputOnChange} />
-      <button onClick={searchFunction}>Search</button>
+      <img src={searchGrey} onClick={searchFunction} />
     </div>
   );
 }
