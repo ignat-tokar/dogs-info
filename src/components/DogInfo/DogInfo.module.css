@@ -1,3 +1,32 @@
-span {
-  color: blue;
+.dogInfoWrapper {
+  /* background-image: url('./../../assets/images/dog_info_background_left.png'); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position-y: top;
+  min-height: 60vh;
+  display: grid;
+  grid-template-areas: "image info";
+  grid-template-columns: '4fr' '8fr';
+  padding: 40pt 40pt 40pt 40pt;
+}
+.imageWrapper {
+  grid-area: image;
+  width: 300pt;
+  height: 300pt;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.imageWrapper img {
+  width: 300pt
+}
+.infoWrapper {
+  grid-area: info;
+  text-align: right;
+}
+.infoWrapperLeft{
+  color: #3B332B;
+}
+.infoWrapperRight{
+  color: #FFC337;
 }
