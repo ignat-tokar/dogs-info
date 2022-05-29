@@ -14,6 +14,7 @@ function FavouriteDog({ favouriteId, imageId, imageUrl }) {
       });      
     });
   }, [imageId ]);
+  
   return (
     <>
       {breed
