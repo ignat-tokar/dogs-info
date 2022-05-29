@@ -27,8 +27,16 @@
   cursor: pointer;
 }
 .search img {
-  width: 20pt;
-  height: 20pt;
+  background-color: #3B332B;
+  padding: 10pt;
+  padding-left: 11pt;
+  border-radius: 5pt;
+  width: 15pt;
+  height: 15pt;
   cursor: pointer;
-  margin-left: 10pt;
+  margin-left: 20pt;
+  margin-bottom: -14pt;
+}
+.search img:hover {
+  background-color: #FFC337;
 }
