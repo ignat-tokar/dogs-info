@@ -1,19 +1,28 @@
 {
   "files": {
-    "main.css": "/dogs-info/static/css/main.33c9a66d.css",
-    "main.js": "/dogs-info/static/js/main.00cdc67c.js",
+    "main.css": "/dogs-info/static/css/main.a90d8e53.css",
+    "main.js": "/dogs-info/static/js/main.73435b3b.js",
     "static/js/787.9a587622.chunk.js": "/dogs-info/static/js/787.9a587622.chunk.js",
-    "static/media/mainBackgroundImage.jpg": "/dogs-info/static/media/mainBackgroundImage.f4d9025caee957e89f47.jpg",
+    "static/media/mainBackgroundImage.jpg": "/dogs-info/static/media/mainBackgroundImage.1de1257df92d38ffc5d6.jpg",
+    "static/media/temperament_yellow.png": "/dogs-info/static/media/temperament_yellow.b914344d9fed5eff39a4.png",
+    "static/media/favourites_yellow.png": "/dogs-info/static/media/favourites_yellow.a1de1d7f6b486e4966f2.png",
+    "static/media/life_span_yellow.png": "/dogs-info/static/media/life_span_yellow.7c0e64dd28005e2c064b.png",
     "static/media/dog_info_background_left.png": "/dogs-info/static/media/dog_info_background_left.0f244911903c7a4c0776.png",
     "static/media/dog_info_background_right.png": "/dogs-info/static/media/dog_info_background_right.9f477c2d8f2b5d537cf2.png",
+    "static/media/weight_yellow.png": "/dogs-info/static/media/weight_yellow.66b5e03c71cbe47b6b6b.png",
+    "static/media/bred_for_yellow.png": "/dogs-info/static/media/bred_for_yellow.c126ced5db82031aa4ba.png",
+    "static/media/temperament_grey.png": "/dogs-info/static/media/temperament_grey.83fad956accb74c9ede2.png",
+    "static/media/search_yellow.png": "/dogs-info/static/media/search_yellow.aecd4c9149d9605375a2.png",
+    "static/media/random_grey.png": "/dogs-info/static/media/random_grey.592677129e5fc6c5e7bf.png",
+    "static/media/breed_group_yellow.png": "/dogs-info/static/media/breed_group_yellow.0140dc8cd8ec618e004b.png",
     "static/media/preloader.svg": "/dogs-info/static/media/preloader.ea356991b1c2fb4775312a4c61f7a20d.svg",
     "index.html": "/dogs-info/index.html",
-    "main.33c9a66d.css.map": "/dogs-info/static/css/main.33c9a66d.css.map",
-    "main.00cdc67c.js.map": "/dogs-info/static/js/main.00cdc67c.js.map",
+    "main.a90d8e53.css.map": "/dogs-info/static/css/main.a90d8e53.css.map",
+    "main.73435b3b.js.map": "/dogs-info/static/js/main.73435b3b.js.map",
     "787.9a587622.chunk.js.map": "/dogs-info/static/js/787.9a587622.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.33c9a66d.css",
-    "static/js/main.00cdc67c.js"
+    "static/css/main.a90d8e53.css",
+    "static/js/main.73435b3b.js"
   ]
 }
