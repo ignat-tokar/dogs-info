@@ -1,4 +1,4 @@
-import { favouritesAPI } from "../api/api";
+import { favouritesAPI, imagesAPI } from "../api/api";
 
 const SET_FAVOURITES_BREEDS = 'dogs-info/favourites/SET_FAVOURITES_BREEDS';
 const SET_PRELOADER = 'dogs-info/favourites/SET_PRELOADER';
@@ -51,6 +51,15 @@ export const removeFromFavouritesThunk = (imageId) => async (dispatch) => {
     favouriteItem.image_id === imageId)[0].id;
   await favouritesAPI.deleteFavourite(favouriteId);
   dispatch(getFavouritesBreeds());
+}
+
+export const getBreedDataByImageId = (imageId, setBreed) => {
+  imagesAPI.getBreedInfoByImageId(imageId).then(breedData => {
+    imagesAPI.getImageById(imageId).then(imageData => {
+      setBreed({...breedData[0], image: 
+        {width: imageData.width, height: imageData.height}});
+    });      
+  });
 }
 
 export default favouritesReducer;

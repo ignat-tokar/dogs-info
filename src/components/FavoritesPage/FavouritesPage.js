@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { breedsAPI, imagesAPI } from "../../api/api";
+import Preloader from "../../common/Preloader/Preloader";
+import { getBreedDataByImageId } from "../../redux/favourites-reducer";
 import DogInfoContainer from "../DogInfo/DogInfoContainer";
 
 function FavouriteDog({ favouriteId, imageId, imageUrl }) {
@@ -7,13 +8,8 @@ function FavouriteDog({ favouriteId, imageId, imageUrl }) {
   const [breed, setBreed] = useState(null);
 
   useEffect(() => {
-    imagesAPI.getBreedInfoByImageId(imageId).then(breedData => {
-      imagesAPI.getImageById(imageId).then(imageData => {
-        setBreed({...breedData[0], image: 
-          {width: imageData.width, height: imageData.height}});
-      });      
-    });
-  }, [imageId ]);
+    getBreedDataByImageId(imageId, setBreed);
+  }, [imageId, setBreed ]);
   
   return (
     <>
@@ -25,7 +21,7 @@ function FavouriteDog({ favouriteId, imageId, imageUrl }) {
             breed={breed}
           />
         </>
-        : <p>Loading ...</p>
+        : <Preloader />
       }
     </>
   );

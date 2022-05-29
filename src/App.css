@@ -5,3 +5,18 @@ body {
 img {
   width: 200px;
 }
+button {
+  background-color: #FFC337;
+  border: none;
+  border-radius: 5pt;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 5pt;
+	padding-top: 6pt;
+  color: #3B332B;
+  cursor: pointer;
+}
+button:hover {
+	background-color: #3B332B;
+  color: #FFC337;
+}

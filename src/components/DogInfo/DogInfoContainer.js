@@ -17,11 +17,11 @@ function DogInfoContainer({
 
   useEffect(() => {
     setIsFavourite(false);
-    favouritesBreeds.map(favouriteBreed => {
-      if(favouriteBreed.image_id === imageId) 
-        setIsFavourite(true);
-    });
-  }, [favouritesBreeds]);
+    favouritesBreeds.map(favouriteBreed => (favouriteBreed.image_id === imageId)
+      ? setIsFavourite(true)
+      : null 
+    );
+  }, [favouritesBreeds, imageId]);
 
   const addToFavourites = () => {
     addToFavouritesThunk(imageId);

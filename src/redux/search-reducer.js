@@ -51,6 +51,7 @@ const setDetailInfo = (detailInfo) => ({ type: SET_DETAIL_INFO, detailInfo });
 
 export const getFoundBreeds = (inputValue) => async (dispatch) => {
   dispatch(setPreloader(true));
+  dispatch(setDetailInfo(null));
   const response = await breedsAPI.getBreedByName(inputValue);
   dispatch(setFoundBreeds(response));
   dispatch(setPreloader(false));
@@ -59,8 +60,9 @@ export const getFoundBreeds = (inputValue) => async (dispatch) => {
 export const getDetailInfo = (id) => async (dispatch) => {
   dispatch(setDetailPreloader(true));
   const breedData = await breedsAPI.getBreedById(id);
-  const response = await imagesAPI.getImageById(breedData.reference_image_id);
-  dispatch(setDetailInfo(response));
+  const imageData = await imagesAPI.getImageById(breedData.reference_image_id);
+  dispatch(setDetailInfo({...breedData, image: {id: imageData.id, width: imageData.width, height:
+    imageData.height, url: imageData.url}}));
   dispatch(setDetailPreloader(false));
 }
 

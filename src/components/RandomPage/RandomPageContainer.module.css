@@ -1,17 +1,5 @@
 .random button {
-  background-color: #FFC337;
-  /* #3B332B; */
-  border: none;
-  border-radius: 5pt;
   font-size: 15pt;
-  font-weight: bold;
-  padding: 5pt;
-  color: #3B332B;
   margin: 15pt;
   margin-left: 45%;
-  cursor: pointer;
-}
-.random button:hover {
-  background-color: #3B332B;
-  color: #FFC337;
 }

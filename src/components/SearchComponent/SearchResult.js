@@ -20,9 +20,9 @@ function SearchResult({
       {detailPreloader
         ? <Preloader />
         : <>{detailInfo && <DogInfoContainer
-          imageId={detailInfo.id}
-          imageUrl={detailInfo.url}
-          breed={detailInfo.breeds[0]}
+          imageId={detailInfo.image.id}
+          imageUrl={detailInfo.image.url}
+          breed={detailInfo}
         />}</>
       }
       {preloader
@@ -31,7 +31,16 @@ function SearchResult({
           {foundBreeds && foundBreeds.map(breed => {
             return (
               <p key={breed.id}>
-                <button id={breed.id} onClick={showDetailInfo}>{breed.name}</button>
+                <button 
+                  style={{
+                    marginLeft: '20pt',
+                    marginTop: '10pt',
+                    fontSize: '15pt',
+                    padding: '10pt'
+                  }}
+                  id={breed.id}
+                  onClick={showDetailInfo}
+                >{breed.name}</button>
               </p>
             );
           })}

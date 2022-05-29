@@ -94,8 +94,8 @@ function DogInfo(props) {
           </div>
           <div className={styles.favouriteWrapper}>
             {isFavourite
-              ? <img src={favouriteBorder} onClick={removeFromFavourites} />
-              : <img src={favouriteFill} onClick={addToFavourites} />
+              ? <img src={favouriteFill} onClick={removeFromFavourites} />
+              : <img src={favouriteBorder} onClick={addToFavourites} />
             }
           </div>
         </>
