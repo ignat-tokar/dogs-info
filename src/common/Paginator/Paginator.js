@@ -15,7 +15,7 @@ let Paginator = ({ totalItemsCount = 170, pageSize = 5, currentPage, onPageChang
 	let [portionNumber, setPortionNumber] = useState(1);
 	let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
 	let rightPortionPageNumber = portionNumber * portionSize;
-	let marginLeft = (leftPortionPageNumber > 10) ? '25%': '30%';
+	let marginLeft = (window.outerWidth >= 480) ? (leftPortionPageNumber > 10) ? '25%': '30%' : '0%';
 	return <div className={cn(styles.paginator)} style={{marginLeft}}>
 		{portionNumber > 1 &&
 			<button onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button>}

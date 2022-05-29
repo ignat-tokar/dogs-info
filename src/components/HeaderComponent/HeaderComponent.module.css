@@ -24,3 +24,20 @@
 .wrapper img:hover {
   background-color: #FFC337;
 }
+@media(max-width: 480px) {
+  .wrapper {
+    margin-left: 5%;
+    width: 90%;
+    padding: 0pt;
+  }
+  .wrapper img {
+    width: 50pt;
+    height: 50pt;
+    margin-top: 50pt;
+    margin-left: 10pt;
+    background-color: #3B332B;
+    /* padding: 10pt; */
+    border-radius: 10pt;
+    cursor: pointer;
+  }  
+}

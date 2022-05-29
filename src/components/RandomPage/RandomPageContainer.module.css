@@ -3,3 +3,8 @@
   margin: 15pt;
   margin-left: 45%;
 }
+@media(max-width: 480px) {
+  .random button {
+    margin-left: 42%;
+  }
+}

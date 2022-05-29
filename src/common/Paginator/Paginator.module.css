@@ -22,3 +22,18 @@
 	border-radius: 50%;
 	color: #3B332B;
 }
+@media(max-width: 480px) {
+	.paginator {
+		width: 100%;
+		margin: 5pt 3pt 5pt 3pt;
+	}
+	.pageNumber {
+		padding: 4pt 6pt;
+		margin: 0pt;
+		font-size: 9pt;
+	}
+	.paginator button {
+		font-size: 8pt;
+		padding: 3pt
+	}
+}

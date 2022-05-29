@@ -40,3 +40,12 @@
 .search img:hover {
   background-color: #FFC337;
 }
+@media(max-width: 480px) {
+  .search {
+    margin-left: 5%;
+  }
+  .search input {
+    width: 75%;
+    margin-top: 28%;
+  }
+}

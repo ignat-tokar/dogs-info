@@ -53,3 +53,50 @@
 .favouriteWrapper img:hover {
   cursor: pointer;
 }
+@media(max-width: 480px) {
+  .dogInfoWrapper {
+    background-image: none;
+    grid-template-areas: 'image' 'favourite' 'info';
+    grid-template-columns: '12fr' '12fr' '12fr';
+    padding: 10pt 10pt 10pt 10pt;    
+  }
+  .imageWrapper {
+    grid-area: image;
+    width: 250pt;
+    height: 250pt;
+    border-radius: 50%;
+    border-color: red;
+    border-style: solid;
+    overflow: hidden;
+    margin-top: 20pt;
+  }
+  .imageWrapper img {
+    width: 200pt;  
+  }
+  .infoWrapper {
+    grid-area: info;
+    text-align: left;
+  }
+  .infoWrapper img {
+    width: 30pt;
+    height: 30pt;
+    float: left;
+    padding-right: 20pt;
+  }  
+  .favouriteWrapper {
+    grid-area: favourite;
+  }
+  .infoWrapperLeft{
+    background-color: #FFC337;
+    color: #3B332B;
+  }
+  .infoWrapperRight{
+    background-color: #3B332B;
+    color: #FFC337;
+  }  
+  .favouriteWrapper img {
+    width: 50pt;
+    height: 50pt;
+    padding: 10pt 0pt 5pt 105pt;
+  }  
+}

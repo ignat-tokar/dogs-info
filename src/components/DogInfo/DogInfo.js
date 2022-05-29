@@ -16,8 +16,10 @@ import heightYellow from './../../assets/images/height_yellow.png';
 import weightYellow from './../../assets/images/weight_yellow.png';
 import temperamentYellow from './../../assets/images/temperament_yellow.png';
 
-import favouriteBorder from './../../assets/images/favourite_border.png';
-import favouriteFill from './../../assets/images/favourite_fill.png';
+import favouriteBorderGrey from './../../assets/images/favourite_border_grey.png';
+import favouriteFillGrey from './../../assets/images/favourite_fill_grey.png';
+import favouriteBorderYellow from './../../assets/images/favourite_border_yellow.png';
+import favouriteFillYellow from './../../assets/images/favourite_fill_yellow.png';
 
 function BreedInfo({ image, info }) {
   return (
@@ -49,9 +51,16 @@ function DogInfo(props) {
 
   return (
     <div className={styles.dogInfoWrapper} style={{
-      backgroundImage: isLeftPosition
-        ? `url(${backgroundImageLeft})`
-        : `url(${backgroundImageRight})`
+      backgroundImage: (window.outerWidth >= 480) 
+        ? (isLeftPosition)
+          ? `url(${backgroundImageLeft})`
+          : `url(${backgroundImageRight})`
+        : 'none',
+      backgroundColor: (window.outerWidth <= 480)
+        ? (isLeftPosition)
+          ? '#FFC337'
+          : '#3B332B'
+        : 'none'
     }}>
       {showPreloader
         ? <Preloader />
@@ -59,7 +68,9 @@ function DogInfo(props) {
           <div className={styles.imageWrapper} style={{
             borderStyle: 'solid',
             borderWidth: '5pt',
-            borderColor: isLeftPosition ? '#FFC337' : '#3B332B'
+            borderColor: (window.outerWidth >= 480) 
+              ? (isLeftPosition) ? '#FFC337' : '#3B332B'
+              : (isLeftPosition) ? '#3B332B' : '#FFC337'
           }}>
             <img style={{
               height: `${imageHeight}pt`,
@@ -93,9 +104,17 @@ function DogInfo(props) {
             </div>
           </div>
           <div className={styles.favouriteWrapper}>
-            {isFavourite
-              ? <img src={favouriteFill} onClick={removeFromFavourites} />
-              : <img src={favouriteBorder} onClick={addToFavourites} />
+            {(window.outerWidth >= 480) 
+              ? isFavourite
+                ? <img src={favouriteFillGrey} onClick={removeFromFavourites} />
+                : <img src={favouriteBorderGrey} onClick={addToFavourites} />
+              : isLeftPosition
+                ? isFavourite
+                  ? <img src={favouriteFillGrey} onClick={removeFromFavourites} />
+                  : <img src={favouriteBorderGrey} onClick={addToFavourites} />
+                : isFavourite
+                ? <img src={favouriteFillYellow} onClick={removeFromFavourites} />
+                : <img src={favouriteBorderYellow} onClick={addToFavourites} />
             }
           </div>
         </>
