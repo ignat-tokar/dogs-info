@@ -3,7 +3,7 @@ import RandomPage from "./RandomPage";
 import Preloader from "./../../common/Preloader/Preloader";
 import { getRandomBreed } from "../../redux/random-reducer";
 import { connect } from "react-redux";
-import styles from "./RandomPageContainer.module.css";
+import styles from "./../../assets/styles/RandomPageContainer.module.css";
 
 function RandomPageContainer({ preloader, randomBreed, getRandomBreed }) {
 

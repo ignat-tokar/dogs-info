@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import mainBackgroundImage from "./../../assets/images/mainBackgroundImage.jpg";
 import SearchComponent from "../SearchComponent/SearchComponent";
-import styles from "./HeaderComponent.module.css";
+import styles from "./../../assets/styles/HeaderComponent.module.css";
 import allImageYellow from "./../../assets/images/all_yellow.png";
 import allImageGrey from "./../../assets/images/all_grey.png";
 import favouritesImageYellow from "./../../assets/images/favourites_yellow.png";

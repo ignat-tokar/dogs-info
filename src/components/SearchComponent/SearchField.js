@@ -1,4 +1,4 @@
-import styles from './SearchField.module.css';
+import styles from './../../assets/styles/SearchField.module.css';
 import searchGrey from './../../assets/images/search_grey.png';
 import searchYellow from './../../assets/images/search_yellow.png';
 
@@ -12,7 +12,7 @@ function SearchField({ searchFunction, inputValue, inputOnChange }) {
     <div className={styles.search}>
       <input
         type="text"
-        placeholder="Name of breed"
+        placeholder='Try to type "spaniel"'
         value={inputValue}
         onChange={inputOnChange} />
       <img 

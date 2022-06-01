@@ -1,4 +1,4 @@
-import styles from './DogInfo.module.css';
+import styles from './../../assets/styles/DogInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
 import backgroundImageLeft from './../../assets/images/dog_info_background_left.png';
 import backgroundImageRight from './../../assets/images/dog_info_background_right.png';
