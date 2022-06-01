@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dogs-info/static/css/main.d1954293.css",
-    "main.js": "/dogs-info/static/js/main.21217afc.js",
+    "main.css": "/dogs-info/static/css/main.05766467.css",
+    "main.js": "/dogs-info/static/js/main.b1b6a5a5.js",
     "static/js/787.9a587622.chunk.js": "/dogs-info/static/js/787.9a587622.chunk.js",
     "static/media/mainBackgroundImage.jpg": "/dogs-info/static/media/mainBackgroundImage.1de1257df92d38ffc5d6.jpg",
     "static/media/temperament_yellow.png": "/dogs-info/static/media/temperament_yellow.b914344d9fed5eff39a4.png",
@@ -18,12 +18,12 @@
     "static/media/breed_group_yellow.png": "/dogs-info/static/media/breed_group_yellow.0140dc8cd8ec618e004b.png",
     "static/media/preloader.svg": "/dogs-info/static/media/preloader.ea356991b1c2fb4775312a4c61f7a20d.svg",
     "index.html": "/dogs-info/index.html",
-    "main.d1954293.css.map": "/dogs-info/static/css/main.d1954293.css.map",
-    "main.21217afc.js.map": "/dogs-info/static/js/main.21217afc.js.map",
+    "main.05766467.css.map": "/dogs-info/static/css/main.05766467.css.map",
+    "main.b1b6a5a5.js.map": "/dogs-info/static/js/main.b1b6a5a5.js.map",
     "787.9a587622.chunk.js.map": "/dogs-info/static/js/787.9a587622.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d1954293.css",
-    "static/js/main.21217afc.js"
+    "static/css/main.05766467.css",
+    "static/js/main.b1b6a5a5.js"
   ]
 }
